@@ -1,47 +1,64 @@
-第一部分
-UnionFind 
+#第一部分
+
+##UnionFind 
+
 要点： path compression 可以做weighted balance Union 这样复杂度就是log*V
+```
 find（n）
 if parent(n) != n
 parent(n) = find(parent(n));
+```
 
-排序们：
+##排序
+
 要点 注意 quick的实现 和 kth element partition
+
 要点 凡是sort的时候 都想一想可不可以radix sort
 
-------------------------
-bubble
-selection
-insert
-shell
-merge
-quick
-3-quick
-heap
-(Radix)
-LSD
-MSD
-3WayMSD
--------------------------
-PQ 
+算法|最好|平均|最差|空间|稳定
+:---|:---|:---|:---|:---|:---
+bubble| N^2|
+selection|
+insert|
+shell|
+merge|
+quick|
+3-quick|
+heap|
+(Radix)|
+LSD|
+MSD|
+3WayMSD|
+
+##PQ 
 技巧（可以indexPQ）这样就组合成一个类似于mapPQ的东西，还可以修改里面的值，swim up down
 但是实现起来比较复杂。
 
-Hash 没啥好说的。找好哈希函数
+##Hash 没啥好说的。找好哈希函数
 
-BST 
+##BST
+
 要点可以用作line sweep 
+
 扩展： 
+
 Interval search Tree
+
 存start 做key， 每个node里面都存子树里面的最大的end是多少，这个可以做2D line sweep
+
 扩展：
+
 线段树 
+
 可以用类似于堆来实现。不用考虑树的完整性，最后会循环回同一层。 做查询时，分清目前是左子还是右子树。
 适合最大最小。 取和非特例，用一个Array 存目前为止的和更简单。
+
 扩展：
 红黑树 
+
 B-树
 对应disk IO，每次读取一个block，每个节点有K-1个数据，K个孩子。K的大小由block大小决定。
+
 B+ B* 树
 在非叶子节点不存数据，只存key，这样一次读取的block中包含的key数量大增。 叶子节点间加link便于循环，存入最大最小值在索引中便于分支。
 B* 在非叶子节点加入link到邻居，可以邻居间平衡，减少分裂次数。
