@@ -145,8 +145,11 @@ else
       i = lnp[i-1]
 ```
 比较的时候也是一样
+
 Boyer-Moore 这个反着比，跳过。序列不好计算。
+
 Rabin-Karp  算哈希  
+
 重点：凡是字符串匹配都考虑一下 Rabin-Karp
 
 ## 线性编程
